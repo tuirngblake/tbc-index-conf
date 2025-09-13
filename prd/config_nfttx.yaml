@@ -1,0 +1,59 @@
+# TBC爬虫YAML配置文件
+CrawlerInfo:
+  RecrawlCount: 10
+  CrawlerOffset: 862620
+  CrawlerCount: 16
+
+CoinType: "TBC"
+Fullnode:
+  URL: 
+    - "tbc:tbc@172.31.40.152:8332"
+  ZMQURL: 
+    - "tcp://172.31.40.152:28333"
+  NETTYPE: "mainnet"
+
+DbPaths:
+# NFT交易信息
+  nft_tx_hash: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  nft_tx_hash_pre: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  nft_tx_block_info: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  nft_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  unconfirm_nft_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  nft_tx_record: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+
+
+DbIndexs:
+  # NFT
+  nft_tx:
+    - "addr"
+    - "value.nftid"
+    - "value.collectionid"
+  unconfirm_nft_tx:
+    - "addr"
+    - "value.nftid"
+    - "value.collectionid"
+  nft_tx_block_info:
+    - "hash"
+  nft_tx_record:
+    - "hash"
+  nft_tx_hash:
+    - "height"
+  nft_tx_hash_pre:
+    - "height"
+
+RedisDbPaths:
+  vout: "redis://127.0.0.1:6379/13"
+
+Type: "nfttx_filter"
+
+LogConfig:
+  LogDir: "./logs/mainnet/nfttx.log"
+  LogLevel: "INFO"
+
+# AWS S3 配置
+S3Config:
+  Region: "ap-southeast-1"
+  AccessKey: "${AWS_ACCESS_KEY}"
+  SecretKey: "${AWS_SECRET_KEY}"
+  # BucketName: "tbc-node-test-local"
+  BucketName: "tbc-node-test"
