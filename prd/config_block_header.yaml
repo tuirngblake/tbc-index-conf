@@ -1,0 +1,43 @@
+# TBC爬虫YAML配置文件
+CrawlerInfo:
+  RecrawlCount: 10
+  CrawlerOffset: 824200
+  CrawlerCount: 16
+
+CoinType: "TBC"
+Fullnode:
+  URL: 
+    - "tbc:tbc@172.31.40.152:8332"
+  ZMQURL: 
+    - "tcp://172.31.40.152:28333"
+  NETTYPE: "mainnet"
+
+DbPaths:
+# 区块头信息
+  block_header: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  block_header_hash: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  block_header_hash_pre: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  block_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+
+DbIndexs:
+  # BlockHeader
+  block_header: 
+    - "height"
+    - "hash"
+  block_tx:
+    - "blockhash"
+    - "txhash"
+  block_header_hash:
+    - "height"
+  block_header_hash_pre:
+    - "height"
+
+RedisDbPaths:
+  vout: "redis://127.0.0.1:6379/13"
+
+Type: "block_header_filter"
+
+LogConfig:
+  LogDir: "./logs/mainnet/block-header.log"
+  LogLevel: "INFO"
+

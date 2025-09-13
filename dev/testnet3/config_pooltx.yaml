@@ -1,0 +1,56 @@
+# TBC爬虫YAML配置文件
+CrawlerInfo:
+  RecrawlCount: 10
+  CrawlerOffset: 135794
+  CrawlerCount: 16
+
+CoinType: "TBC"
+
+Fullnode:
+  URL: 
+    - "tbc:tbc@172.31.40.152:8332"
+  ZMQURL: 
+    - "tcp://172.31.40.152:28333"
+  NETTYPE: "testnet3"
+
+DbPaths:
+# Pool交易信息
+  pool_tx_hash: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  pool_tx_hash_pre: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  pool_tx_block_info: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  pool_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  pool_info_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  unconfirm_pool_info_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  ft_lp_info_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  unconfirm_ft_lp_info_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+
+DbIndexs:
+  # Pool
+  pool_info_tx:
+    - "value.poolid"
+    - "value.poolhash"
+    - "value.tokenpairid"
+  unconfirm_pool_info_tx:
+    - "value.poolid"
+    - "value.poolhash"
+    - "value.tokenpairid"
+  pool_tx_block_info:
+    - "hash"
+  ft_lp_info_tx:
+    - "scriptpubbkeyhash"
+  unconfirm_ft_lp_info_tx:
+    - "scriptpubbkeyhash"
+  pool_tx_hash:
+    - "height"
+  pool_tx_hash_pre:
+    - "height"
+
+RedisDbPaths:
+  vout: "redis://127.0.0.1:6379/13"
+
+Type: "pooltx_filter"
+
+LogConfig:
+  LogDir: "./logs/testnet3/pooltx.log"
+  LogLevel: "INFO"
+

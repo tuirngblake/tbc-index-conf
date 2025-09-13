@@ -1,0 +1,42 @@
+# TBC爬虫YAML配置文件
+CrawlerInfo:
+  RecrawlCount: 10
+  CrawlerOffset: 135794
+  CrawlerCount: 16
+
+CoinType: "TBC"
+Fullnode:
+  URL: 
+    - "tbc:tbc@172.31.40.152:8332"
+  ZMQURL: 
+    - "tcp://172.31.40.152:28333"
+  NETTYPE: "simnet"
+
+DbPaths:
+# Multisig交易信息
+  multisig_tx_hash: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  multisig_tx_hash_pre: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  multisig_tx_block_info: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  multisig_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+  unconfirm_multisig_tx: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
+
+DbIndexs:
+  # multisig_tx
+  multisig_tx:
+    - "addr"
+  unconfirm_multisig_tx:
+    - "addr"
+  multisig_tx_hash:
+    - "height"
+  multisig_tx_hash_pre:
+    - "height"
+
+RedisDbPaths:
+  vout: "redis://127.0.0.1:6379/13"
+
+Type: "multisigtx_filter"
+
+LogConfig:
+  LogDir: "./logs/simnet/multisigtx.log"
+  LogLevel: "INFO"
+
