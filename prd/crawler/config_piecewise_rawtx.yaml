@@ -8,9 +8,9 @@ CoinType: "TBC"
 
 Fullnode:
   URL: 
-    - "tbc:tbc@172.31.40.152:8332"
+    - "vsa23rewfdsfaddasd1:rgfdv213edas@127.0.0.1:8332"
   ZMQURL: 
-    - "tcp://172.31.40.152:28333"
+    - "tcp://127.0.0.1:28333"
   NETTYPE: "mainnet"
 
 
