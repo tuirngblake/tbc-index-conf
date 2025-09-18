@@ -13,6 +13,11 @@ Fullnode:
     - "tcp://127.0.0.1:28333"
   NETTYPE: "mainnet"
 
+# 健康检查配置
+HealthCheck:
+  ReportURL: "http://127.0.0.1:8081/tbc/health/heartbeat"
+  ReportInterval: 15
+
 DbPaths:
 # NFT交易信息
   nft_tx_hash: "mongodb://admin:metasoftmongodb@127.0.0.1:27017"
